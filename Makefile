@@ -4,4 +4,4 @@ CXXFLAGS=-std=c++14 -g -O3 -fno-exceptions -fno-rtti -Wall -march=native
 wrapping_counters_test: wrapping_counters_test.o
 
 clean:
-	$(RM) *.o wrapping_counters_test
+	$(RM) -rf *.o wrapping_counters_test *.dSYM
