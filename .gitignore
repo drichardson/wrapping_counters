@@ -1,2 +1,2 @@
-mod_vs_increment_and_test
+wrapping_counters_test
 *.o

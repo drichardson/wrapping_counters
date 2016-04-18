@@ -20,7 +20,9 @@ int main(int argc, char** argv)
     int i, j=0, k=0, l=0;
     constexpr int end = 1000000000;
     if (argc != 2) {
-        std::cerr << "Missing required divisor argument. Divisor must be power of 2.\n";
+        std::cerr
+            << "Missing required divisor argument. Divisor must be power of 2.\n"
+            << "run: " << argv[0] << " 128\n";
         std::exit(1);
     }
 
@@ -28,7 +30,9 @@ int main(int argc, char** argv)
     // into account.
     const int divisor = std::atoi(argv[1]);
     if (!is_power_of_two(divisor)) {
-        std::cerr << "divisor " << divisor << " is not a power of 2.\n";
+        std::cerr
+            << "divisor " << divisor << " is not a power of 2.\n"
+            << "run: " << argv[0] << " 128\n";
         std::exit(1);
     }
 
