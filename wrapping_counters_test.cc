@@ -45,18 +45,18 @@ int main(int argc, char** argv)
 
     auto s2 = std::chrono::high_resolution_clock::now();
 
-    // Use & operator. We can do this since we're modding by a power of 2.
-    const int and_divisor = divisor-1;
-    for(i = end; i != 0; --i) {
-        k = (k+1) & and_divisor;
-    }
-
-    auto s3 = std::chrono::high_resolution_clock::now();
-
     for(i = end; i != 0; --i) {
         if (++l == divisor) {
             l = 0;
         }
+    }
+
+    auto s3 = std::chrono::high_resolution_clock::now();
+
+    // Use & operator. We can do this since we're modding by a power of 2.
+    const int and_divisor = divisor-1;
+    for(i = end; i != 0; --i) {
+        k = (k+1) & and_divisor;
     }
 
     auto s4 = std::chrono::high_resolution_clock::now();
@@ -67,14 +67,14 @@ int main(int argc, char** argv)
     }
 
     auto mod_time = std::chrono::duration_cast<std::chrono::microseconds>(s2 - s1).count();
-    auto and_time = std::chrono::duration_cast<std::chrono::microseconds>(s3 - s2).count();
-    auto increment_and_compare_time = std::chrono::duration_cast<std::chrono::microseconds>(s4 - s3).count();
+    auto compare_time = std::chrono::duration_cast<std::chrono::microseconds>(s3 - s2).count();
+    auto and_time = std::chrono::duration_cast<std::chrono::microseconds>(s4 - s3).count();
 
     constexpr int w = 8;
     std::cout
-        << "mod: " << std::setw(w) << mod_time << "us\n"
-        << "and: " << std::setw(w) << and_time << "us\n"
-        << "cmp: " << std::setw(w) << increment_and_compare_time << "us\n"; 
+        << "mod    : " << std::setw(w) << mod_time << "us\n"
+        << "and    : " << std::setw(w) << and_time << "us\n"
+        << "compare: " << std::setw(w) << compare_time << "us\n"; 
 
     return 0;
 }
