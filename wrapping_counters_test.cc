@@ -73,8 +73,8 @@ int main(int argc, char** argv)
     constexpr int w = 8;
     std::cout
         << "mod    : " << std::setw(w) << mod_time << "us\n"
-        << "and    : " << std::setw(w) << and_time << "us\n"
-        << "compare: " << std::setw(w) << compare_time << "us\n"; 
+        << "compare: " << std::setw(w) << compare_time << "us\n" 
+        << "and    : " << std::setw(w) << and_time << "us\n";
 
     return 0;
 }
